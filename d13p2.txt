@@ -1,0 +1,44 @@
+/*Prasad is given a list of integers nums[]. He like odd numbers and like to form 
+odd length consecutive subsets possible and compute the sum of all such subsets. 
+Your task is to help Prasad in his task.
+
+Sample test case1
+input = 5
+2 5 4 6 1
+output =73
+
+The possible subsets are.
+[2] = 2, [5] = 5, [4] = 4, [6] = 6, [1] = 1
+[2,5,4] = 11, [5,4,6] = 15, [4,6,1] = 11
+[2,5,4,6,1] = 18
+Finally, the total sum is:  2 + 5 + 4 + 6 + 1 + 11 + 15 + 11 + 18 = 73
+*/
+
+import java.util.*;
+class d13p2
+{
+    public static void main(String[] args)
+    {
+    Scanner sc=new Scanner(System.in);
+    int n=sc.nextInt();
+    int arr[]=new int[n];
+    int sum=0;
+    for(int i=0;i<n;i++)
+    {
+        arr[i]=sc.nextInt();
+        sum+=arr[i];
+    }
+    for(int i=3;i<=n;i+=2)
+    {
+        for(int j=0;j<n-(i-1);j++)
+        {
+            for(int k=0;k<i;k++)
+            {
+                sum+=arr[k];
+            }
+        }
+    }
+    sc.close();
+    System.out.println(sum);
+    }
+}

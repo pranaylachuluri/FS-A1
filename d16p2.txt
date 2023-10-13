@@ -1,0 +1,46 @@
+/*
+Professor Bessy is the favorite among the students. She teaches by using simple 
+games for learning. Her students James and Martha are given a string, their task 
+is to take one character at a time and write it on the board alternatively. 
+Upon reaching the end of the string, the remaining characters from the other 
+string is written in the same order on the board. The final string is shared 
+with the class. 
+Your task is to help Professor Bessy find the final string.
+
+Sample test case
+
+input=2
+hello world
+output=hweolrllod
+*/
+
+import java.util.*;
+import java.lang.Math;
+class d16p2{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        sc.nextLine();
+        String[] str=sc.nextLine().split(" ");
+        String ans="";
+        int min=Math.min(str[0].length(),str[1].length());
+        int max=Math.max(str[0].length(),str[1].length());
+        for(int i=0;i<max;i++)
+        {
+            if(i<min){
+
+                ans+=str[0].charAt(i);
+                ans+=str[1].charAt(i);
+            }
+            else if(min==str[0].length()){
+                ans+=str[1].charAt(i);
+            }
+            else{
+                ans+=str[0].charAt(i);
+            }
+        }
+        sc.close();
+        System.out.println(ans); 
+    }
+}

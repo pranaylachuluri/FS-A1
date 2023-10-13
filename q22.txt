@@ -1,0 +1,11 @@
+/*
+Write a query to select status and number of orders from orders table 
+based on the status.
+
+Sample test case
+case=1
+output=
+status	count(*)
+Shipped	24
+*/
+select status,count(*) from orders group by status;

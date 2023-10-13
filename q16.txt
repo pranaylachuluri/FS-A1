@@ -1,0 +1,16 @@
+/*
+Write a query to find customerName, country, state, creditLimit from the 
+customers table who located in state CA, country USA, and have the credit 
+limit greater than 100K.
+
+Sample test case
+case=1
+output=
+customerName	country	state	creditLimit
+Mini Gifts Distributors Ltd.	USA	CA	210500.00
+Collectable Mini Designs Co.	USA	CA	105000.00
+*/
+
+select customername,country,state,creditlimit 
+from customers 
+where state='CA'and creditlimit>100000

@@ -1,0 +1,17 @@
+/*
+Write a query to select firstname, lastname, officeCode from employees table 
+whose office code is greater than 5.
+
+Sample test case
+case=1
+output=
+lastname	firstname	officeCode
+Patterson	William	6
+Bott	Larry	7
+Jones	Barry	7
+Fixter	Andy	6
+Marsh	Peter	6
+King	Tom	6
+*/
+
+select lastname,firstname,officeCode from employees where officeCode > 5;

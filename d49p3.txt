@@ -1,0 +1,38 @@
+/*
+David has two strings Sentence and Characters. He wants to find out whether he 
+can make the Sentence by using the letters from Characters. Each letter from 
+Characters can only be used once in Sentence. Return true if he can make the 
+Sentence, other wise return false. Your task is to help David in his task. 
+
+Sample test case
+case=1
+input=bb
+bbc
+output=true
+*/
+
+import java.util.*;
+class p2{
+    public static void main(String arg[]){
+        Scanner sc=new Scanner(System.in);
+        String s1=sc.next();
+        String s2=sc.next();
+        int [] alp=new int[25];
+        int [] check=new int[25];
+        for(int i=0;i<s1.length();i++){
+            alp[s1.charAt(i)-'a']++;
+        }
+        for(int i=0;i<s2.length();i++){
+            check[s2.charAt(i)-'a']++;
+        }
+        int f=1;
+        for(int i =0;i<s1.length();i++){
+            if(check[s1.charAt(i)-'a']!=alp[s1.charAt(i)-'a'])
+                f=0;
+        }
+        if(f==0)
+            System.out.println(false);
+        else
+            System.out.println(true);
+    }
+}

@@ -1,0 +1,41 @@
+/*
+Write a query to select lastname, firstname, jobtitle, officeCode from 
+employees table whose job title is Sales Rep or employees who locate the 
+office with office code 1 in ascending order of officeCode and jobTitle.
+
+Sample test case
+case=1
+output=
+lastName	firstName	jobTitle	officeCode
+Murphy	Diane	President	1
+Bow	Anthony	Sales Manager (NA)	1
+Thompson	Leslie	Sales Rep	1
+Jennings	Leslie	Sales Rep	1
+Firrelli	Jeff	VP Marketing	1
+Patterson	Mary	VP Sales	1
+Firrelli	Julie	Sales Rep	2
+Patterson	Steve	Sales Rep	2
+Tseng	Foon Yue	Sales Rep	3
+Vanauf	George	Sales Rep	3
+Castillo	Pamela	Sales Rep	4
+Hernandez	Gerard	Sales Rep	4
+Bondur	Loui	Sales Rep	4
+Gerard	Martin	Sales Rep	4
+Nishi	Mami	Sales Rep	5
+Fixter	Andy	Sales Rep	6
+Marsh	Peter	Sales Rep	6
+King	Tom	Sales Rep	6
+Bott	Larry	Sales Rep	7
+Jones	Barry	Sales Rep	7
+*/
+
+
+SELECT lastname,firstname,jobTitle,officeCode 
+FROM employees 
+WHERE jobTitle='Sales Rep' OR officeCode=1
+ORDER BY officeCode,jobTitle;
+
+-- SELECT lastname,firstname,jobTitle,officeCode
+-- FROM employees
+-- WHERE jobTitle='Sales Rep' OR officeCode=1
+-- ORDER BY officeCode,jobTitle;

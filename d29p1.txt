@@ -1,0 +1,32 @@
+Peter is taking a coding exam for campus placement. In the test, he is given 
+an English sentence and was asked to reverse every word in the sentence while 
+maintaining the original order of the words. Your task is to help Peter in his 
+task.
+Note: You should not use any String API.
+
+Sample test case
+case=1
+input=Let’s Rock 
+output=s’teL kcoR
+
+import java.util.*;
+class p1{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        char ch[]=str.toCharArray();
+        int c=0;
+        for(int i=0;i<=ch.length;i++){
+            if(i==ch.length || ch[i]==' '){
+                int f=c;int l=i-1;
+                while(f<l){
+                    char temp=ch[f];
+                    ch[f]=ch[l];
+                    ch[l]=temp;f++;l--;
+                }
+                c=i+1;
+            }
+        }
+        System.out.println(String.valueOf(ch));
+    }
+}

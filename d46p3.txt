@@ -1,0 +1,39 @@
+/*
+Given two strings s and t, return true if t is an anagram of s, and false 
+otherwise. An Anagram is a word or phrase formed by rearranging the letters 
+of a different word or phrase, typically using all the original letters exactly 
+once.
+
+Sample test case
+
+case=1
+input=dormitory dirtyroom
+output=true
+*/
+
+import java.util.*;
+public class p3{
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        String s= sc.nextLine();
+        String[] str=s.split(" ");
+        if(str[0].length()!=str[1].length()){
+            System.out.println(false);
+            
+        }else{
+            int[] ch=new int[26];
+            for(int i=0;i<str[1].length();i++){
+                ch[str[0].charAt(i) - 'a']++;
+                ch[str[1].charAt(i) - 'a']--;
+            }
+            for(int i=0;i<ch.length;i++){
+                if(ch[i]!=0){
+                    System.out.println(false);
+                    break;
+                }else{
+                    System.out.println(true);
+                }
+            }
+        }
+    }
+}

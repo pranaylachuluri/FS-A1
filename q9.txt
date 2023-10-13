@@ -1,0 +1,17 @@
+/*
+Write a query to select firstname, lastname, jobtitle from employees table who 
+are not Sales Rep.
+
+Sample test case
+case=1
+output=
+lastname	firstname	jobtitle
+Murphy	Diane	President
+Patterson	Mary	VP Sales
+Firrelli	Jeff	VP Marketing
+Patterson	William	Sales Manager (APAC)
+Bondur	Gerard	Sale Manager (EMEA)
+Bow	Anthony	Sales Manager (NA)
+*/
+
+select lastname ,firstname,jobtitle from employees where not jobtitle='Sales Rep'

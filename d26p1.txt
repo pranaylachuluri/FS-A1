@@ -1,0 +1,48 @@
+Judith, the class leader of class 9, tell Kevin, the class leader to make the 
+class stand in line based on their height. The student with smaller height 
+should be in front and students with greater height should be at back. Given 
+the heights of all the students, your task is to help Keving make the 
+arrangement in the least possible time. 
+
+Sample test case
+case=1
+input=5
+29 75 10 51 23
+output=10 23 29 51 75
+
+import java.util.*;
+class p1{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[] =new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        quicksort(arr,0,n-1);
+        System.out.println(Arrays.toString(arr));
+    }
+    public static void quicksort(int[] arr,int l,int h){
+       if(l>=h) return;
+       int pi=partition(arr,l,h);
+       quicksort(arr,l,pi-1);
+       quicksort(arr,pi+1,h);
+    }
+    public static int partition(int[] arr,int l,int h){
+        int p=arr[h];
+        int i=l-1;
+        for(int j=l;j<h;j++){
+            if(arr[j]<=p){
+                i++;
+                int temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
+        int temp=arr[i+1];
+        arr[i+1]=p;
+        arr[h]=temp;
+        return i+1;
+        
+    }
+}

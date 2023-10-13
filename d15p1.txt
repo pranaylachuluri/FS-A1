@@ -1,0 +1,47 @@
+/*
+CodeSoft company declares the result of year-on-year profit for last N years. 
+A positive value represents profit and negative value represents the loss the 
+company made for that year. Stephan plans to invest into the stocks of that 
+company and does research on the company’s performance. He first wants to look 
+at the years in which the company made profit followed by the years in which it 
+made losses. 
+You task is to help arrange the company’s result in such a way that Stephan can 
+first look at profits in the order it appeared in the original declared result, 
+followed by losses.
+
+Sample test case
+Input =5
+-1 1 -1 3 12
+Output =[1, 3, 12, -1, -1]
+*/
+
+import java.util.*;
+class p1{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] ans=new int[n];
+        int[] narr=new int[n];
+        int a=0;
+        int b=0;
+        for(int i=0;i<n;i++){
+            int x=sc.nextInt();
+            if(x>0){
+                ans[a]=x;
+                a++;
+            }
+            else{
+                narr[b]=x;
+                b++;
+            }
+        }
+        int c=0;
+        for(int j=a;j<n;j++)
+        {
+            ans[j]=narr[c];
+            c++;
+        }
+        System.out.println(Arrays.toString(ans));
+    }
+}

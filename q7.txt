@@ -1,0 +1,15 @@
+/*
+Write a query to select firstname, lastname from employees table whose last names 
+end with the string 'son' sort by firstname.
+
+Sample test case
+case=1
+output=
+firstName	lastName
+Leslie	Thompson
+Mary	Patterson
+Steve	Patterson
+William	Patterson
+*/
+
+SELECT firstName,lastName from employees where lastName like'%son' order by firstName

@@ -1,0 +1,40 @@
+/*
+Write a query to sort the fields contactFirstname, contactLastname in customers 
+table by the values in the contactLastname field in ascending order.
+
+Sample test case
+case=1
+output=
+contactFirstname	contactLastname
+Christina 	         Berglund
+Jonas 	             Bergulfsen
+Marie	             Bertrand
+Isabel 	             de Castro
+Peter	             Ferguson
+Keith	             Franco
+Diego 	             Freyre
+Michael	             Frick
+Juri	             Hashimoto
+Mihael	             Holz
+Roland	             Keitel
+Jean	             King
+Janine 	             Labrune
+Kwai	             Lee
+Kelvin	             Leong
+Julie	             Murphy
+Eric	             Natividad
+Susan	             Nelson
+Veysel	             Oeztan
+Jytte 	             Petersen
+Zbyszek 	         Piestrzeniewicz
+Martine 	         Rancé
+Mary 	             Saveley
+Carine 	             Schmitt
+Valarie	             Thompson
+Jerry	             Tseng
+Wendy	             Victorino
+Jeff	             Young
+*/
+
+SELECT contactFirstname,contactLastname FROM customers ORDER BY contactLastname
+

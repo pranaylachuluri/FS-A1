@@ -1,0 +1,94 @@
+Mark has the weird habit of reading a sentence by arranging the words in the 
+sentence one below the other and read them column-wise in the same order. 
+Given a sentence, your task is to return the list of words thus formed, following 
+the below rules
+1. The new words should be complete with spaces where necessary.
+2. Trailing space are not allowed in the new words
+3. The sentence contains only upper-case English letters
+4. There is only a single space between any two words
+
+Sample test cases
+
+case=1
+input=THE WAR HIT BOY
+output=[TWHB, HAIO, ERTY]
+
+Explanation: Each word is arranged column-wise. 
+
+case=2
+input=BE OR HI AND HI BE
+output=[BOHAHB, ERINIE,    D]
+
+Explanation: Each word is arranged column-wise, note that for the 
+last word "   D", there are no trailing spaces after 'D'.
+
+
+// import java.util.*;
+// class p2{
+//     public static void main(String[] args){
+//         Scanner sc=new Scanner(System.in);
+//         String str=sc.nextLine();
+//         String[] s=str.split(" ");
+//         int min=Integer.MAX_VALUE;
+//         int max=0;
+//         for(int i=0;i<s.length;i++){
+//             if(s[i].length()<min){
+//                 min=s[i].length();
+//             }
+//             if(s[i].length()>max){
+//                 max=s[i].length();
+//             }
+//         }
+//         String[] ans=new String[max];
+//         for(int i=0;i<min;i++){
+//             String add="";
+//             for(int j=0;j<s.length;j++){
+//                 add+=s[j].charAt(i);
+//             }
+//             ans[i]=add;
+//         }
+//         min=min+1;
+//         while(min<=max){
+//             String add="";
+//             for(int i=0;i<s.length;i++){
+//                 if(s[i].length()==min){
+//                     add+=s[i].charAt(min-1);
+//                 }
+//                 else{
+//                     add+=' ';
+//                 }
+//             }
+//             ans[min-1]=add;
+//             min++;
+//         }
+//         System.out.println(Arrays.toString(ans));
+//     }
+// }
+
+
+import java.util.*;
+class p2
+{
+    public static void main(String[]args)
+    {
+        Scanner sc=new Scanner(System.in);
+        String str[]=sc.nextLine().split(" ");
+        ArrayList<String> l=new ArrayList<>();
+        int n=Integer.MIN_VALUE;
+        for(int i=0;i<str.length;i++){
+            if(str[i].length()>n){
+                n=str[i].length();
+            }
+        }
+        for(int i=0;i<n;i++){
+            StringBuilder s=new StringBuilder();
+            for(String st:str){
+                if(st.length()<=i) s.append(" ");
+                else s.append(st.charAt(i));
+            }
+            l.add(s.toString());
+        }
+        System.out.println(l);
+    }
+}
+

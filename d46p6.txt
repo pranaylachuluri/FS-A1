@@ -1,0 +1,11 @@
+
+/*
+Given a number n, find the nth prime number. 
+
+Sample test case
+case=1
+input=3
+output=5
+
+*/
+

@@ -1,0 +1,48 @@
+/*
+Rajiv is a project leader in UltraTech. He wants to enhance the technical skills 
+of his team. He conducts a test to identify the skills that need improvement. 
+The test consists of few words and the order for the characters. He asks his 
+team to check if the words are arranged in sorted order (as in dictionary), and 
+should follow the order given for each character. Given the test, it should 
+return true if the words are sorted as per above rule, else return false. 
+Your task is to help Rajiv in conducting the test.
+
+Sample test case
+
+input=habbit letout
+hlabcdefgijkmnopqrstuvwzxy
+output=true
+*/
+import java.util.*;
+import java.lang.Math;
+class p2{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        HashMap<Character,Integer> hm=new HashMap<>();
+        String str1=sc.nextLine();
+        String order=sc.nextLine();
+        String[] str=str1.split(" ");
+        int n=str.length;
+        boolean ans=true;
+        int min=Integer.MAX_VALUE;
+        for(int i=0;i<order.length();i++)
+        {
+            hm.put(order.charAt(i),i+1);
+        }
+        for(int j=0;j<str.length-1;j++)
+        {
+            String curr=str[j];
+            String next=str[j+1];
+            for(int k=0;k<Math.min(curr.length(),next.length());k++){
+                if(hm.get(curr.charAt(k))>hm.get(next.charAt(k))){
+                    ans=false;
+                }
+                if(curr.length()>next.length()){
+                    ans=false;
+                }
+            }
+        }
+        System.out.println(ans);
+        
+    }
+}

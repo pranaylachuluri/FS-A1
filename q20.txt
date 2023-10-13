@@ -1,0 +1,19 @@
+/*
+Write a query to select employeeNumber, lastName, firstName from employees table 
+whose last names contain "on".
+
+Sample test case
+case=1
+output=
+employeeNumber	lastName	firstName
+1056	Patterson	Mary
+1088	Patterson	William
+1102	Bondur	Gerard
+1166	Thompson	Leslie
+1216	Patterson	Steve
+1337	Bondur	Loui
+1504	Jones	Barry
+*/
+
+select employeenumber,lastname,firstname 
+from employees where lastname like "%on%";

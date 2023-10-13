@@ -1,0 +1,22 @@
+/*
+Write a query to select ordernumber, number of items sold (quantityOrdered) 
+per order as itemCount, and total sales for order (priceeach*quantityOrdered) 
+as total from the orderdetails table.
+
+Sample test case
+case=1
+output=
+ordernumber	itemsCount	total
+10101	142	10549.01
+10102	80	5494.78
+10103	321	32800.51
+10104	99	12297.55
+10105	120	18941.04
+10107	30	2440.50
+10123	156	14571.44
+10165	436	65123.54
+10287	380	60373.80
+*/
+
+select ordernumber,sum(quantityOrdered) as itemsCount, sum(priceeach*quantityOrdered) as total
+from orderdetails group by ordernumber

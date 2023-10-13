@@ -1,0 +1,48 @@
+/*
+Derbi is a good systems side programmer, he developed a compiler for strings. 
+The compiler converts alphabet "B" as "B", "[]" as "o" and "[ld]" as "ld". 
+Give a string, consisting of the above alphabets in any order, return the 
+compiler translated string in the original order.
+
+Sample test case
+case=1
+input=1
+B[][][ld]
+output=Boold
+*/
+
+import java.util.*;
+class p3{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        String st =sc.next();
+        char[] ch=st.toCharArray();
+        char[] ans=new char[ch.length];
+        int a=0;
+        int i=0;
+        while(i<ch.length){
+            if(ch[i]=='B'){
+                ans[a]='B';
+                a++;
+                i++;
+            }
+            else if(ch[i]=='['){
+                if(ch[i+1]==']'){
+                    ans[a]='o';
+                    a++;
+                    i+=2;
+                }
+                else if(ch[i+1]=='l'){
+                    ans[a]='l';
+                    ans[a+1]='d';
+                    a+=2;
+                    i+=4;
+                }
+            }
+        }
+        String res = new String(ans);
+        System.out.println(res);
+    }
+}

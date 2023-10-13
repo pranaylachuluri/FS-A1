@@ -1,0 +1,35 @@
+/*
+John give a test to his students. He gives them a string and tell them to find 
+the index of the first non-repeating character. If there are no non-repeating 
+character then they should return -1. Your task is to help the students in 
+their task.
+
+Sample test case
+case=1
+input=abbcdeb
+output=0
+
+*/
+
+import java.util.*;
+class p2{
+    public static void main(String args[]){
+        Scanner sc= new Scanner(System.in);
+        String s=sc.next();
+        int index=-1;
+        List<Character> check=new ArrayList<>();
+        HashSet<Character> hs=new HashSet<>();
+        for(int i=0;i<s.length();i++){
+            if(!hs.add(s.charAt(i))){
+                check.add(s.charAt(i));
+            }
+        }
+        for(int i=0;i<s.length();i++){
+            if(!check.contains(s.charAt(i))){
+                index=i;
+                break;
+            }
+        }
+        System.out.println(index);
+    }
+}

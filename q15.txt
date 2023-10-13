@@ -1,0 +1,18 @@
+/*
+Write a query to find customername, country, state from the customers table who 
+are located in state CA, country USA.
+
+Sample test case
+case=1
+output=
+customerName	country	state
+Mini Gifts Distributors Ltd.	USA	CA
+Mini Wheels Co.	USA	CA
+Technics Stores Inc.	USA	CA
+Collectable Mini Designs Co.	USA	CA
+*/
+
+
+select customerName,country,state 
+from customers
+where state='ca' and country = 'USA'

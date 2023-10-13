@@ -1,0 +1,55 @@
+Andy is the class teacher of grade 8. She gives two strings str1 and str2 to 
+her student Molly and ask her to tell if str2 contains a permutation of str1, 
+i.e. if one of str1’s permutation is a substring of str2. If str2 contains 
+permutation of str1, Molly has to tell true, else false. 
+Your task is to help Molly in her task.
+
+Sample test case
+case=1
+input=abc abdcabb
+output=true
+
+case=2
+input=abc abdcadbb
+output=false
+
+import java.util.*;
+class p2{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String s1=sc.next();
+        List<Character> ch1=new ArrayList<>();
+        for(int i=0;i<s1.length();i++){
+            ch1.add(s1.charAt(i));
+        }
+        String s2=sc.next();
+        int c=0;
+        HashMap<Character,Integer>hm=new HashMap<>();
+        for(int i=0;i<ch1.size();i++){
+            hm.put(ch1.get(i),1);
+        }
+        for(int i=0;i<s2.length()-s1.length()+1;i++){
+            if(hm.containsKey(s2.charAt(i))){
+                for(int j=i+1;j<i+s1.length()-1;j++){
+                    if(s2.charAt(j)==s2.charAt(i)){
+                        break;
+                    }
+                    if(hm.containsKey(s2.charAt(j))){
+                        c+=hm.get(s2.charAt(j));
+                    }
+                }
+                if(c==s1.length()){
+                    break;
+                }
+            }
+        }
+
+        if(c==s1.length()){
+            System.out.println(true);
+        }
+        else{
+            System.out.println(false);
+        }
+        
+    }
+}

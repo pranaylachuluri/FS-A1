@@ -1,0 +1,14 @@
+/*
+Write a query to select to select number of orders by status 
+and sort the status in descending order..
+
+Sample test case
+case=1
+output=
+status	COUNT(*)
+Shipped	24
+*/
+
+select status,count(*) 
+from orders group by status
+order by count(*) desc

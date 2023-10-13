@@ -1,0 +1,63 @@
+/*
+John is an amateur thief and follows the orders given by his boss Mark. 
+Marks gives John the head of a linked list which has the sequence of houses 
+to rob. He asks John to rob the houses in the reverse order by reversing the 
+sequence of the linked list and return the head of the new list. 
+Your task is to help John in his task.
+
+Sample test case
+case=1
+input=5
+2 4 6 8 10
+output=[10, 8, 6, 4, 2]
+
+
+class ListNode
+{
+    int val;
+    ListNode next;
+    ListNode() {}
+    ListNode(int val)
+    {
+        this.val = val;
+    }
+    ListNode(int val, ListNode next)
+    {
+        this.val = val;
+        this.next = next;
+    }
+}
+*/
+
+import java.util.*;
+class Solution
+{
+    public ListNode revList(ListNode head)
+    {
+        // Implement your code here
+        // ListNode cur = head.next;
+        // ListNode prev = head;
+        // while(cur!=null){
+        //     ListNode nextt = cur.next;
+        //     cur.next=prev;
+        //     prev=cur;
+        //     cur=nextt;
+        // }
+        // head.next=null;
+        // head=prev;
+        // return head;
+        Stack<ListNode> s = new Stack<>();
+        ListNode cur = head;
+        while(cur.next!=null){
+            s.push(cur);
+            cur=cur.next;
+        }
+        head=cur;
+        while(!s.isEmpty()){
+            cur.next=s.pop();
+            cur=cur.next;
+        }
+        cur.next=null;
+        return head;
+    }
+}

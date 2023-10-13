@@ -1,0 +1,14 @@
+/*
+Write a query to select employeeNumber, lastName, firstName from employees table 
+whose first names start with  'T' , end with 'm', and contain any single character 
+between e.g., Tom , Tim.
+
+Sample test case
+case=1
+output=
+employeeNumber	lastName	firstName
+1619	King	Tom
+*/
+
+select employeeNumber, lastName, firstName from employees
+where firstname like "T%m"

@@ -1,0 +1,39 @@
+/*
+Write a query to sort the fields contactLastname , contactFirstname from customers table by the last name in descending order and then by the first name in ascending order.
+
+Sample test case
+case=1
+output=
+contactLastname	contactFirstname
+Young	Jeff
+Victorino	Wendy
+Tseng	Jerry
+Thompson	Valarie
+Schmitt	Carine 
+Saveley	Mary 
+Rancé	Martine 
+Piestrzeniewicz	Zbyszek 
+Petersen	Jytte 
+Oeztan	Veysel
+Nelson	Susan
+Natividad	Eric
+Murphy	Julie
+Leong	Kelvin
+Lee	Kwai
+Labrune	Janine 
+King	Jean
+Keitel	Roland
+Holz	Mihael
+Hashimoto	Juri
+Frick	Michael
+Freyre	Diego 
+Franco	Keith
+Ferguson	Peter
+de Castro	Isabel 
+Bertrand	Marie
+Bergulfsen	Jonas 
+Berglund	Christina 
+*/
+
+SELECT contactLastname,contactFirstname from customers ORDER BY contactLastname desc,contactFirstname
+

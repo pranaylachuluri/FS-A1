@@ -1,0 +1,29 @@
+/*
+Write a query to select unique lastname from employees table group by lastname.
+
+Sample test case
+case=1
+output=
+lastname
+Bondur
+Bott
+Bow
+Castillo
+Firrelli
+Fixter
+Gerard
+Hernandez
+Jennings
+Jones
+King
+Marsh
+Murphy
+Nishi
+Patterson
+Thompson
+Tseng
+Vanauf
+*/
+
+-- select lastname from employees group by lastname
+select distinct lastname from employees group by lastname

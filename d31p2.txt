@@ -1,0 +1,56 @@
+John has a grid consisting of m rows and n columns. Each cell of the grid has a 
+value stored in it. Given a starting cell (row, column), and a “new value”, he 
+wants to change the values in the grid with the “new value” based on the below 
+constraints
+
+1. Consider the starting cell, plus any cells connected four-directionally 
+(top, bottom, right, left) to the starting cell having the same value as that of 
+the starting cell, plus any cell connected four-directionally to those cell 
+(also with the same value as the starting cell) and so on, replace with the new 
+value. 
+
+Your task is to help John in his task.
+
+Sample test case
+case=1
+input=3 3
+3 3 3
+3 3 0
+3 0 3
+1 1
+4
+output=[[4, 4, 4], [4, 4, 0], [4, 0, 3]]
+
+import java.util.*;
+class p1{
+    public static void main(String args[]){
+        Scanner sc= new Scanner(System.in);
+        int m=sc.nextInt();
+        int n=sc.nextInt();
+        int [][] arr=new int[m][n];
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                arr[i][j]=sc.nextInt();
+            }
+        }
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        int nv=sc.nextInt();
+        int ov=arr[a][b];
+        if(ov!=nv)
+            dfs(arr,a,b,ov,nv);
+        System.out.println(Arrays.deepToString(arr));
+        
+    }
+    static void dfs(int arr[][],int a,int b,int ov,int nv)
+    {
+        if(a>=arr.length || b>=arr[0].length || a<0 || b<0 || arr[a][b]!=ov){
+            return;
+        }
+        arr[a][b]=nv;
+        dfs(arr,a+1,b,ov,nv);
+        dfs(arr,a-1,b,ov,nv);
+        dfs(arr,a,b+1,ov,nv);
+        dfs(arr,a,b-1,ov,nv);
+    }
+}

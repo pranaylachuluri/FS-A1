@@ -1,0 +1,57 @@
+/*
+Mr John doe is working with Numbers.
+He is given a number N. He wants to check whether N,
+obeys the following conditions or not:
+	- Initialize P=0, extract each digit 'd' from N, add them to P=> P = P + d^2.
+	- Add set N value to P as N=P.
+	- and repeat the process until the N equals 1 or 
+	if N loops endlessly in a cycle without having 1. 
+
+Your task is to check whether N becomes 1 or Not.
+If yes, print "true", otherwise print "false".
+
+Note: A^B indicates A to power of B.
+
+Input Format:
+-------------
+An integer N
+
+Output Format:
+--------------
+Print a boolean value.
+
+
+Sample Input-1:
+---------------
+19
+
+Sample Output-1:
+----------------
+true
+*/
+
+import java.util.*;
+class d4p3
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       int n=sc.nextInt();
+       int c=0;
+       int p=0;boolean ans=true;
+       while(n!=1)
+       {
+           int d=n%10;
+           p=p+d*d;
+           n=p;
+           c++;
+           if(c>20)
+           {
+               ans=false;
+               break;
+           }
+       }
+       sc.close();
+       System.out.println(ans);
+    }
+}

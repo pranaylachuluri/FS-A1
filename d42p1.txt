@@ -1,0 +1,76 @@
+/*
+Alex is having a list of integers. He wants to find the first missing positive 
+integer in the list. If he finds there are no missing positive integer, then he 
+has to find the number that is to added. Your task is to help Alex in his task.
+
+Sample test case
+case=1
+input=4
+3 4 -1 1
+output=2
+
+case=2
+input=3
+1 2 0
+output=3
+*/
+
+// import java.util.*;
+// class p1{
+//     public static void main(String args[])
+//     {
+//         Scanner sc=new Scanner(System.in);
+//         int n = sc.nextInt();
+//         int arr[]=new int[n];
+//         for(int i =0;i<n;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         Arrays.sort(arr);
+//         int m=arr[n-1]+1;
+//         for(int i=0;i<n-1;i++){
+//             if(arr[i]<=0){
+//                 continue;
+//             }
+//             else if(arr[i+1]!=arr[i]+1){
+//                 m=arr[i]+1;
+//                 break;
+//             }
+//         }
+//         System.out.println(m);
+//     }
+// }
+
+import java.util.*;
+
+class d42p1 {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        HashSet<Integer> hs = new HashSet<>();
+        int arr[] = new int[n];
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+            hs.add(arr[i]);
+            min = Math.min(min, arr[i]);
+        }
+        for (int i = min; i < min + n; i++) {
+            if (!hs.contains(i) && i > 0) {
+                System.out.println(i);
+                break;
+            }
+        }
+        // Arrays.sort(arr);
+        // int m=arr[n-1]+1;
+        // for(int i=0;i<n-1;i++){
+        // if(arr[i]<=0){
+        // continue;
+        // }
+        // else if(arr[i+1]!=arr[i]+1){
+        // m=arr[i]+1;
+        // break;
+        // }
+        // }
+        // System.out.println(m);
+    }
+}

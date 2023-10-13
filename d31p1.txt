@@ -1,0 +1,52 @@
+/*Sam gives a string to John and ask him to find all the permutations of the 
+string. Your task is to help John in his task.
+
+Sample test case
+case=1
+input=abc
+output=[abc, acb, bac, bca, cba, cab]
+
+case=2
+input=abcd
+output= [abcd, abdc, acbd, acdb, adcb, adbc, bacd, badc, bcad, bcda, bdca, bdac, cbad, cbda, cabd, cadb, cdab, cdba, dbca, dbac, dcba, dcab, dacb, dabc]*/
+
+import java.util.*;
+
+class Sam {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        func(s, 0);
+    }
+
+    public static void func(String s, int index) {
+        ArrayList<String> stc = new ArrayList<>();
+        if (index == s.length()) {
+            stc.add(s);
+        } else {
+            for (int i = index; i < s.length(); i++) {
+                s = swap(s, index, i);
+                func(s, index + 1);
+                s = swap(s, index, i);
+            }
+        }
+        System.out.println(stc);
+    }
+
+    public static String swap(String s, int i, int n) {
+        char ch[] = s.toCharArray();
+        char temp = ch[i];
+        ch[i] = ch[n];
+        ch[n] = temp;
+        StringBuilder st = new StringBuilder();
+        for (int k = 0; k < ch.length; k++) {
+            st.append(ch[k]);
+        }
+        return st.toString();
+        // if(idx==i) return s;
+        // String s1=s.substring(0,idx);
+        // String s2=s.substring(idx+1,i);
+        // String s3=s.substring(i+1);
+        // return s1+s.charAt(i)+s2+s.charAt(idx)+s3;
+    }
+}
