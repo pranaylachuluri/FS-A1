@@ -1,0 +1,52 @@
+Alan is a school teacher and decides to conducts a game with his students. 
+He gives an English sentence to his student John and wants to know whether the 
+sentence has all the vowels and consonants. The vowels and consonants can be 
+either lower case or upper case. If it contains all the vowels and consonants, 
+John has to say true, else false. 
+Your task is to help John in his task.
+
+Note: The input may contain whitespaces.
+
+Sample test case
+
+case=1
+input=xif boj weNslukcG Mzhary VT PDQnO
+output=true
+
+Explanation 
+The given input line contains all the vowels and consonants
+ 
+case=2
+input=cbA ufghD IJklM nOpqrsTuv ZxyW
+output=false
+
+Explanation 
+The given input line does not contain the vowel ‘e’. 
+
+import java.util.*;
+class p1{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        // String str1=str.toLowerCase();
+        char alp[]=str.toCharArray();
+        HashSet<Character> ch=new HashSet<>();
+        for(int i=0;i<alp.length;i++){
+            if(alp[i]==' '){
+                continue;
+            }
+            else{
+                ch.add(Character.toLowerCase(alp[i]));
+            }
+        }
+        if(ch.size()==26){
+            System.out.println(true);
+            
+        }
+        else{
+            System.out.println(false);
+        }
+        
+        
+    } 
+}

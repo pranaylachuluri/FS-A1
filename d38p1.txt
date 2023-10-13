@@ -1,0 +1,47 @@
+/*
+James observes his kid Teddy play in the garden. In the middle of the garden 
+is a slider , which has a few metallic steps to go up the slider. Teddy can 
+take either one step or two steps to go up the slider. Given the number of 
+steps on the slider, James wants to know the total number of ways Teddy can 
+reach the top of the slider from the ground.
+
+Sample test case
+case=1
+input=5
+output=8
+*/
+
+import java.util.*;
+class p1{
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int mem[]=new int[n+1];
+        mem[0]=1;mem[1]=1;
+        System.out.println(stairs(n,mem));
+    }
+    public static int stairs(int n,int[] mem){
+        if(n==0 || n==1){
+            return 1;
+        }
+        if(mem[n]!=0){
+            return mem[n];
+        }
+        return mem[n]=stairs(n-1,mem)+stairs(n-2,mem);
+        
+    }
+}
+
+// import java.util.*;
+// class p1{
+//     public static void main(String args[]){
+//         Scanner sc=new Scanner(System.in);
+//         int n=sc.nextInt();
+//         int []dp=new int[n+1];
+//         dp[0]=1;dp[1]=1;
+//         for(int i=2;i<n+1;i++){
+//             dp[i]=dp[i-1]+dp[i-2];
+//         }
+//         System.out.println(dp[n]);
+//     }
+// }

@@ -1,0 +1,13 @@
+/*
+Write a query to select the total sales as total for each year as year.
+
+Sample test case
+case=1
+output=
+year	total
+2003	162218.37
+2004	60373.80
+*/
+
+select YEAR(orderDate) as year,sum(quantityOrdered*priceEach) as total from orders
+inner join orderdetails using(orderNumber) where status='Shipped' group by YEAR(orderDate);

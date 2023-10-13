@@ -1,0 +1,68 @@
+AlphaCipher is a string formed from another by rearranging its letters
+
+You are given two strings A and B,
+Print true, if B is an AlphaCipher of A,
+Otherwise false
+
+Sample test cases
+
+case =1
+input =dormitory dirtyroom
+output =true
+
+case =3
+input =car rat
+output =false
+
+// import java.util.*;
+// class p1{
+//     public static void main(String[] args){
+//         Scanner sc=new Scanner(System.in);
+//         String s1=sc.next();
+//         String s2=sc.next();
+//         boolean ans=true;
+//         char[] ch1=s1.toCharArray();
+//         char[] ch2=s2.toCharArray();
+//         if(s1.length()!=s2.length()){
+//             ans=false;
+//         }else{
+//             Arrays.sort(ch1);
+//             Arrays.sort(ch2);
+//             if(!(Arrays.equals(ch1,ch2))){
+//                 ans=false;
+//             }
+//         }
+//         System.out.println(ans);
+//     }
+// }
+
+import java.util.*;
+class p1{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String s1=sc.next();
+        String s2=sc.next();
+        boolean ans=true;
+        if(s1.length()!=s2.length()){
+            ans=false;
+        }else{
+            int arr[]= new int[26];
+            for(int i=0;i<s1.length();i++){
+                arr[s1.charAt(i)-'a']++;
+                arr[s2.charAt(i)-'a']--;
+            }
+            for(int i=0;i<s1.length();i++){
+                if(arr[i]!=0){
+                    ans=false;
+                }
+            }
+        }
+        System.out.println(ans);
+    }
+}
+
+
+
+
+
+

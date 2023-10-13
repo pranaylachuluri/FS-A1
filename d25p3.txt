@@ -1,0 +1,26 @@
+Nisha is good at mathematics. Given a number, she can immediately provide the 
+square of it. Her teacher gives a list of values that are in non- decreasing 
+order, and ask her to square the values and provide the result in 
+non-decreasing order. Your task is to help Nisha perform the task.
+
+Sample test case
+case=1
+input=6
+-3 0 1 4 5 7
+output=[0, 1, 9, 16, 25, 49]
+
+import java.util.*;
+class p3{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        int[] ans=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+            ans[i]=arr[i]*arr[i];
+        }
+        Arrays.sort(ans);
+        System.out.println(Arrays.toString(ans));
+    }
+}

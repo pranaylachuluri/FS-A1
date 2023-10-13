@@ -1,0 +1,19 @@
+/*
+Write a query to select the first five non-null unique states from the 
+customers table.
+
+Sample test case
+case=1
+output=
+state
+NV
+Victoria
+CA
+NY
+PA
+*/
+
+SELECT DISTINCT state
+from customers
+WHERE state is not null
+LIMIT 5;

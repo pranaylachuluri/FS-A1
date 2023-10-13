@@ -1,0 +1,13 @@
+/*
+Write a query to select lastname, firstname, jobtitle, officeCode from employees 
+table whose job titles are Sales Rep and office codes are 1.
+
+Sample test case
+case=1
+output=
+lastname	firstname	jobtitle	officeCode
+Jennings	Leslie	Sales Rep	1
+Thompson	Leslie	Sales Rep	1
+*/
+
+select lastname,firstname,jobtitle,officeCode from employees where jobtitle = 'Sales Rep' and officeCode= 1;

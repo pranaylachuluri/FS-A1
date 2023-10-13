@@ -1,0 +1,53 @@
+/*
+Alex is give an list of values in the form of an array. He has to find the 
+maximum total he can compute by only selecting values at alternate index of 
+the array. Your task is to help Alex in his task.
+
+Sample test case
+case=1
+input=5
+50 100 350 150 50
+output=450
+*/
+// import java.util.*;
+// class p2{
+//     public static void main(String args[]){
+//         Scanner sc=new Scanner(System.in);
+//         int n = sc.nextInt();
+//         int[] arr = new int[n];
+//         for(int i=0;i<n;i++){
+//             arr[i]=sc.nextInt();
+//         }
+//         int sum=0;
+//         int max=0;
+//         for(int i=0;i<n;i+=2){
+//             sum+=arr[i];
+//         }
+//         max=Math.max(max,sum);
+//         sum=0;
+//         for(int i=1;i<n;i+=2){
+//             sum+=arr[i];
+//         }
+//         System.out.println(Math.max(sum,max));
+//     }
+// }
+
+import java.util.*;
+class p2{
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        System.out.println(Math.max(sum(0,arr),sum(1,arr)));
+    }
+    public static int sum(int s,int[] arr){
+        int add=0;
+        for(int i=s;i<arr.length;i+=2){
+            add+=arr[i];
+        }
+        return add;
+    }
+}

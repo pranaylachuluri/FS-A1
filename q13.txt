@@ -1,0 +1,13 @@
+/*
+Write a query to count the unique states in the country USA from the customers table.
+
+Sample test case
+case=1
+output=
+COUNT(DISTINCT state)
+6
+*/
+
+select COUNT(DISTINCT state)
+from customers
+where country='USA'

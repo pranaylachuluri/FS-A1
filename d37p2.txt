@@ -1,0 +1,29 @@
+/*
+Given a number n, find the nth term of fibonacci series.
+Note: Use Dynamic Programming.
+
+Sample test case
+case=3
+input=7
+output=13
+*/
+
+
+import java.util.*;
+class p1{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        long[] s=new long[n+1];
+        System.out.println(fib(s,n));
+    }
+    public static long fib(long[] s,int n){
+        if(n<2){
+            return n;
+        }
+        if(s[n]!=0){
+            return s[n];
+        }
+        return s[n]=fib(s,n-1)+fib(s,n-2);
+    }
+}

@@ -1,0 +1,43 @@
+/*
+Write a query to select orderNumber, orderLineNumber from the orderdetails table. 
+Calculate the quantityOrdered * priceEach as a column alias subtotal for each 
+line item and sorts the result set based on the subtotal in descending order.
+
+Sample test case
+case=1
+output=
+orderNumber	orderLineNumber	subtotal
+10165	3	42080.00
+10287	12	40996.20
+10165	4	23043.54
+10287	10	19377.60
+10105	15	8434.52
+10105	2	6392.00
+10103	11	5571.80
+10123	3	5282.64
+10103	4	5026.14
+10104	9	4566.99
+10104	1	4468.96
+10101	1	4343.56
+10105	14	4114.52
+10123	4	3986.84
+10103	16	3970.26
+10102	2	3726.45
+10103	5	3530.52
+10103	10	3307.50
+10103	8	3284.28
+10104	8	3261.60
+10123	2	3138.46
+10101	4	2701.50
+10103	12	2489.13
+10107	2	2440.50
+10103	13	2173.00
+10103	14	2164.40
+10123	1	2163.50
+10101	2	2040.10
+10102	1	1768.33
+10101	3	1463.85
+10103	2	1283.48
+*/
+
+select orderNumber,orderLineNumber,(quantityOrdered*priceEach) AS subtotal from orderdetails ORDER BY subtotal desc

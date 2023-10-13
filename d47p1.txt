@@ -1,0 +1,38 @@
+/*
+Jones is given an integer array and asked to find out the largest sum he can 
+get from the sub-arrays of the given array. 
+Your task is to help Jones in his task.
+
+Sample test case
+case=1
+input=4
+-3 5 -2 4
+output=7
+
+*/
+
+import java.util.*;
+public class p1{
+    public static void main(String args[]){
+        Scanner sc=new Scanner (System.in);
+        int n=sc.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int max=0;
+        int sum=0;
+        int i=0;int j=0;
+        while(i<n){
+            sum+=arr[i];
+            max=Math.max(sum,max);
+            i++;
+        }
+        while(j<i){
+            sum-=arr[j];
+            max=Math.max(sum,max);
+            j++;
+        }
+        System.out.println(max);
+    }
+}

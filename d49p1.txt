@@ -1,0 +1,52 @@
+/*
+Kate is given an m*n integer matrix, each row in the matrix is sorted in 
+ascending order. The first value of each row is greater than the last value 
+of the previous row. She is also given a target value, and asked to find 
+whether the target is in the matrix, she has to return true if found else 
+return false. Your task is to help Kate in her task.
+
+Note: You must write the solution in O(log(m*n)).
+
+Sample test case
+case=1
+input=3 4
+2 4 6 8
+11 12 17 21
+24 31 35 61
+4
+output=true
+
+*/
+
+import java.util.*;
+class p1{
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        int m=sc.nextInt();
+        int n=sc.nextInt();
+        int [][] grid=new int[m][n];
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                grid[i][j]=sc.nextInt();
+            }
+        }
+        int tar=sc.nextInt();
+        System.out.println(bs(grid,tar,0,n-1));
+    }
+    static boolean bs(int [][] grid,int tar,int r,int c){
+        while(r<grid.length && c>=0){
+            if(grid[r][c]==tar)
+               return true;
+               
+            else if(grid[r][c]<tar){
+                r++;
+            }
+            else{
+                c--;
+            }
+        }
+        return false;
+        
+    }
+    
+}

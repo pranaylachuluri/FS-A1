@@ -1,0 +1,35 @@
+Raj gives a list of numbers to his student Amit. He then asks Amit to rotate 
+the numbers anti-clockwise by ‘k’ time. Your task is to help Amit in his task.
+
+Sample test case
+case=1
+input=5
+2 4 6 8 10
+2
+output=[8, 10, 2, 4, 6]
+
+import java.util.*;
+class p1{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++){
+            a[i]=sc.nextInt();
+        }
+        int k=sc.nextInt();
+        if(k>n){
+            k=k%n;
+        }
+        int i=0;
+        while(i<k){
+            int temp=a[n-1];
+            for(int j=n-1;j>0;j--){
+                a[j]=a[j-1];
+            }
+            a[0]=temp;
+            i++;
+        }
+        System.out.println(Arrays.toString(a));
+    }
+}

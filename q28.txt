@@ -1,0 +1,27 @@
+/*
+Write a query to select ordernumber, number of items sold per order as itemCount, 
+and total sales for order (priceeach*quantityOrdered) as total from the 
+orderdetails table whose total sales greater than 10000.
+
+Sample test case
+case=1
+output=
+ordernumber	itemsCount	total
+10101	142	10549.01
+10103	321	32800.51
+10104	99	12297.55
+10105	120	18941.04
+10123	156	14571.44
+10165	436	65123.54
+10287	380	60373.80
+*/
+
+-- SELECT orderNumber,SUM(quantityOrdered) AS itemCount,SUM(priceEach * quantityOrdered) AS total
+-- FROM orderdetails 
+-- where SUM(priceEach * quantityOrdered)>10000;
+-- GROUP BY orderNumber
+
+SELECT orderNumber,SUM(quantityOrdered) AS itemsCount, SUM(priceEach * quantityOrdered) AS total 
+FROM orderdetails 
+GROUP BY orderNumber 
+HAVING SUM(priceEach * quantityOrdered) > 10000;

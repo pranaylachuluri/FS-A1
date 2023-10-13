@@ -1,0 +1,135 @@
+/*
+Naveen purchased two boxes Box1 and Box2 containing gold coins. The weights of 
+the gold coins are unique. The gold coins of Box1 are a subset of Box2. Naveen 
+wants to find out for each coin in Box1 whether there exists a coin in Box2 
+which is heavier. If there exist a coin in Box2 that is heavier, then he wants 
+to know the coin in Box2. If there exist more than one coin in Box2 that is 
+heavier, then he wants to know the first heavier coin. If there are no coin in 
+Box2 that is heavier, then return -1 for that coin.
+
+Your task is to help Naveen in his task.
+
+Sample test case
+
+input=3 4
+7 5 6
+5 6 8 7
+output=[-1, 6, 8]
+*/
+
+// 1)
+// import java.util.*;
+// class p2{
+//     public static void main(String[] args)
+//     {
+//         Scanner sc=new Scanner(System.in);
+//         int n1=sc.nextInt();
+//         int n2=sc.nextInt();
+//         int[] b1 = new int[n1];
+//         int[] b2 = new int[n2];
+//         int[] ans=new int[n1];
+//         for(int i=0;i<n1;i++)
+//         {
+//             b1[i]=sc.nextInt();
+//         }
+//         for(int j=0;j<n2;j++)
+//         {
+//             b2[j]=sc.nextInt();
+//         }
+//         for(int i=0;i<n1;i++)
+//         {
+//             for(int j=0;j<n2;j++)
+//             {
+//                 if(b1[i]==b2[j])
+//                 {
+//                     for(int k=j;k<n2;k++)
+//                     {
+//                         if(b1[i]<b2[k])
+//                         {
+//                             ans[i]=b2[k];
+//                             break;
+//                         }
+//                         else{
+//                             ans[i]=-1;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//         System.out.println(Arrays.toString(ans));
+//     }
+// }
+
+// 2)
+// import java.util.*;
+// class d11p2{
+//     public static void main(String[] args)
+//     {
+//         Scanner sc=new Scanner(System.in);
+//         int n1=sc.nextInt();
+//         int n2=sc.nextInt();
+//         int[] b1 = new int[n1];
+//         List<Integer> b2 = new ArrayList<Integer>();
+//         int[] ans=new int[n1];
+//         for(int i=0;i<n1;i++){
+//             b1[i]=sc.nextInt();
+//         }
+//         for(int j=0;j<n2;j++){
+//             b2.add(sc.nextInt());
+//         }
+        
+        
+        
+//         for(int i=0;i<n1;i++){
+//             int j=b2.indexOf(b1[i]);
+//             for(int k=j;k<n2;k++){
+//                 if(b1[i]<b2.get(k)){
+//                     ans[i]=b2.get(k);
+//                     break;
+//                 }else{
+//                     ans[i]=-1;
+//                 }
+//             }
+//         }
+//         sc.close();
+//         System.out.println(Arrays.toString(ans));
+//     }
+// }
+
+//3)
+import java.util.*;
+class p2{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int n1=sc.nextInt();
+        int n2=sc.nextInt();
+        int[] b1 = new int[n1];
+        int[] b2 = new int[n2];
+        int[] ans=new int[n1];
+        Map<Integer,Integer> map=new HashMap<>();
+        Stack<Integer>st=new Stack<>();
+        for(int i=0;i<n1;i++)
+        {
+            b1[i]=sc.nextInt();
+        }
+        for(int j=0;j<n2;j++)
+        {
+            b2[j]=sc.nextInt();
+        }
+        for(int num:b2)
+        {
+            while(!st.isEmpty() && st.peek()<num)
+            {
+                map.put(st.pop(),num);
+            }
+            st.push(num);
+        }
+        for(int i=0;i<b1.length;i++)
+        {
+            ans[i]=map.getOrDefault(b1[i],-1);
+        }
+        sc.close();
+        System.out.println(Arrays.toString(ans));
+    }
+}

@@ -1,0 +1,8 @@
+Mark gives his student Andrew a string and ask him to find a sub-string that 
+is the longest that can be found without any repeating characters. 
+Your task is to help Andrew in his task.
+
+Sample test case
+case=1
+input=bcabcacc
+output=3

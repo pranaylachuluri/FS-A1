@@ -1,0 +1,32 @@
+/*
+Molly gives an integer n to her friend Rebecca and ask her to find if n is a 
+power of two. Rebecca has to return true if n is a power of two, otherwise she 
+has to return false. An integer is power of two, if there exist an integer x 
+such that n is equal to 2^x.
+
+Note: Can you solve it without loops or recursion?
+
+Sample test case
+
+case=1
+input=4
+output=true
+*/
+
+import java.util.*;
+class p2{
+    public static void main(String args[]){
+        Scanner sc= new Scanner(System.in);
+        int n=sc.nextInt();
+        if(n==1) System.out.println(true);
+        else if(n%2==1 || n==0) System.out.println(false);
+        else{
+            int c=0;
+            while(n%2==0 && n>=2){
+                n=n/2;
+            }
+            if(n==1) System.out.println(true);
+            else System.out.println(false);
+        }
+    }
+}

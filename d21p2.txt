@@ -1,0 +1,65 @@
+Mr. Alan, the professor in computer science, gives an assignment to his student 
+Mark. He gives a list of values and ask Mark to sort the list based on the 
+number of one’s in the binary representation of each value. If there are more 
+than one value which has same number of one’s, the sorting for those values, 
+should be in the original order of list. 
+Your task is to help Mark in his task. 
+
+Note: Each value in the list will be in the range of 1 to 10000.
+
+Sample test case
+
+input=5
+1 2 3 4 5
+output=[1, 2, 4, 3, 5]
+
+import java.util.*;
+class p1{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[]=new int[n];
+        HashMap<Integer,List<Integer>> hm = new HashMap<>();
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int c[]=new int[n];
+        for(int i=0;i<arr.length;i++){
+            // int count=0;
+            // for(int j=0;j<Integer.toBinaryString(arr[i]).length();j++){
+            //     String s=Integer.toBinaryString(arr[i]);
+            //     if(s.charAt(j)=='1'){
+            //         count++;
+            //     }
+            // }
+            // c[i]=count;
+            c[i]=Integer.bitCount(arr[i]);
+            List<Integer> l= new ArrayList<>();
+            hm.put(c[i],l);
+        }
+        for(int i=0;i<n;i++){
+            hm.get(c[i]).add(arr[i]);
+        }
+        Arrays.sort(c);
+        List<Integer> ans=new ArrayList<>();
+        int a=0;
+        HashSet<Integer> s = new HashSet<>();
+        while(a<c.length){
+                int b=0;
+                if(s.contains(c[a])){
+                    a++;
+                    continue;
+                }else{
+                    while(b<hm.get(c[a]).size()){
+                        Collections.sort(hm.get(c[a]));
+                        ans.add(hm.get(c[a]).get(b));
+                        b++;
+                        s.add(c[a]);
+                    }
+                    a++;
+                }   
+            }
+        System.out.println(ans);
+        
+    }
+}

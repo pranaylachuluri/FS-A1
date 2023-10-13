@@ -1,0 +1,19 @@
+/*
+Write a query to select the unique states of customers from the customers table without using DISTINCT clause and sort in ascending order of state.
+
+Sample test case
+case=1
+output=
+state
+NULL
+CA
+CT
+MA
+NV
+NY
+PA
+Victoria
+
+*/
+
+select state from customers group by state 

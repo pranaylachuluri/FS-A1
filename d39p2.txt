@@ -1,0 +1,43 @@
+/*
+Adam is given an array which is in the shape of a triangle. He has to find the 
+minimum path sum from top to bottom of the array. Your task is to help Adam in 
+his task.
+
+Sample test case
+case=1
+input=4
+3
+4 5
+7 6 8
+5 2 9 4
+output=15
+
+Explanation: 3 + 4 + 6 + 2 = 15
+*/
+
+import java.util.*;
+class p2{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[][]=new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<=i;j++){
+                arr[i][j]=sc.nextInt();
+            }
+        }
+        int dp[][]=new int[n][n];
+        System.out.println(maxSum(n,arr,dp,0,0));
+    }
+    public static int maxSum(int n,int arr[][],int dp[][],int r,int c){
+        if(r==arr.length-1){
+            return arr[r][c];
+        }
+        if(dp[r][c]!=0) return dp[r][c];
+        int leftsum=maxSum(n,arr,dp,r+1,c);
+        int rightsum=maxSum(n,arr,dp,r+1,c+1);
+        int sum=arr[r][c]+Math.min(leftsum,rightsum);
+        dp[r][c]=sum;
+        return sum;
+    }
+}

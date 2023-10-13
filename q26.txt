@@ -1,0 +1,19 @@
+/*
+Write a query to select the total sales as total 
+for each year as year after 2003.
+
+Sample test case
+case=1
+output=
+year	total
+2004	60373.80
+*/
+
+
+-- SELECT YEAR(orderdate) as year, SUM(quantityOrdered*priceEach) as total_sales
+-- FROM orders
+-- WHERE YEAR(orderdate) > 2003
+-- GROUP BY YEAR(orderdate);
+
+select YEAR(orderDate) as year,sum(quantityOrdered*priceEach) as total from orders
+inner join orderdetails using(orderNumber) where YEAR(orderDate)>2003 group by YEAR(orderDate);
